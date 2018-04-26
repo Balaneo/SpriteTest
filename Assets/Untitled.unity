@@ -178,12 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04665f1fd116b954e9dbde1f3b513509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 0}
   targets:
   - {fileID: 1270663643}
   - {fileID: 64869681}
-  currentTargetIdx: 0
-  navMeshAgent: {fileID: 0}
-  playerCamera: {fileID: 0}
   spriteObject: {fileID: 525621680}
 --- !u!195 &525621683
 NavMeshAgent:
@@ -525,7 +523,7 @@ Animator:
   m_GameObject: {fileID: 1371743568}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ebb78f9ec65ef7e4ebd82d47c967bce3, type: 2}
+  m_Controller: {fileID: 22100000, guid: d57b65601777dbb499344ba5dec907e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -599,4 +597,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWalking: 0
   walkDirectionVertical: 0
-  walkDirectionHorizontal: 0
