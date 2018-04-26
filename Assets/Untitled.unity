@@ -491,7 +491,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1371743569}
   - component: {fileID: 1371743571}
-  - component: {fileID: 1371743570}
   - component: {fileID: 1371743573}
   - component: {fileID: 1371743572}
   m_Layer: 0
@@ -514,23 +513,6 @@ Transform:
   m_Father: {fileID: 525621681}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1371743570
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1371743568}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: d57b65601777dbb499344ba5dec907e1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &1371743571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -595,5 +577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b4b4c5613e53b46a46e70b2bc0e160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animController: {fileID: 22100000, guid: d57b65601777dbb499344ba5dec907e1, type: 2}
   isWalking: 0
   walkDirectionVertical: 0

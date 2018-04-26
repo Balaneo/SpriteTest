@@ -13,6 +13,8 @@ public class NPC_Animator : MonoBehaviour
     //Animator
     private Animator _animator;
 
+    public AnimatorOverrideController _animController;
+
     //Animator Controller variables.
     public bool isWalking;
     public float walkDirectionVertical;
@@ -22,6 +24,7 @@ public class NPC_Animator : MonoBehaviour
     {
         //Get Animator Component
         _animator = GetComponent<Animator>();
+        _animator.runtimeAnimatorController = _animController;
 	}
 	
 	// Update is called once per frame
