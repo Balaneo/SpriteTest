@@ -20,9 +20,7 @@ public class NPC_Controller : MonoBehaviour
     private NPC_Animator npcAnimator;
 
     //Sprite Object
-    public GameObject spriteObject;
-
-    
+    public GameObject spriteObject;    
 
     // Use this for initialization
     void Start ()
@@ -34,7 +32,7 @@ public class NPC_Controller : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         //Get Animator Script
-        npcAnimator = GetComponentInChildren<NPC_Animator>();        
+        npcAnimator = GetComponentInChildren<NPC_Animator>();
     }
 	
 	// Update is called once per frame
@@ -53,14 +51,18 @@ public class NPC_Controller : MonoBehaviour
         navMeshAgent.SetDestination(targetPosition);
 
         //Movement Check
-        npcAnimator.isWalking = (Vector3.Distance(transform.position, targets[currentTargetIdx].transform.position) > 1.0f);
+        bool localIsWalking = (Vector3.Distance(transform.position, targets[currentTargetIdx].transform.position) > 1.0f);
+        npcAnimator.isWalking = localIsWalking;
 
-        //Horizontal Check
-        float xMovement = Vector3.Dot(navMeshAgent.velocity, playerCamera.transform.right);
-        spriteObject.transform.localScale = new Vector3(xMovement >= 0 ? 1.0f : -1.0f, 1.0f, 1.0f);
+        if(localIsWalking == true)
+        {
+            //Horizontal Check
+            float xMovement = Vector3.Dot(navMeshAgent.velocity, playerCamera.transform.right);
+            spriteObject.transform.localScale = new Vector3(xMovement >= 0 ? 1.0f : -1.0f, 1.0f, 1.0f);
 
-        //Vertical Check
-        float zMovement = Vector3.Dot(navMeshAgent.velocity, playerCamera.transform.forward);
-        npcAnimator.walkDirectionVertical = zMovement;
+            //Vertical Check
+            float zMovement = Vector3.Dot(navMeshAgent.velocity, playerCamera.transform.forward);
+            npcAnimator.walkDirectionVertical = zMovement;
+        }
     }
 }

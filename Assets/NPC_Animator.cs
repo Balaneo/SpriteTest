@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class NPC_Animator : MonoBehaviour
 {
+    public enum EDirection
+    {
+        SouthEast,
+        SouthWest
+    };
+
     //Animator
     private Animator _animator;
 
@@ -25,4 +31,29 @@ public class NPC_Animator : MonoBehaviour
         _animator.SetBool("IsWalking", isWalking);
         _animator.SetFloat("WalkDirectionVertical", walkDirectionVertical);
 	}
+
+    //Sets NPC Direction with raw float value. -1 for left, 1 for right.
+    public void SetNPCDirection(float newDirection)
+    {
+        this.transform.localScale = new Vector3(newDirection, 1.0f, 1.0f);
+    }
+
+    //Sets NPC Direction with enum value. Easier to understand but more costly.
+    public void SetNPCDirection(EDirection newDirection)
+    {
+        switch(newDirection)
+        {
+            case EDirection.SouthEast:
+                this.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                break;
+
+            case EDirection.SouthWest:
+                this.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                break;
+
+            default:
+                print("Invalid argument passed in SetNPCDirection()");
+                break;
+        }
+    }
 }
